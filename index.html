@@ -1,121 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<!-- EmailJS Library -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-        body {
-            margin: 0;
-            background-color: #f4f6f8;
-            color: #333;
-        }
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
 
-        header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
+    body {
+        margin: 0;
+        background-color: #f4f6f8;
+        color: #333;
+    }
+
+    /* HEADER */
+    header {
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: white;
+        padding: 30px;
+    }
+
+    .header-container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .profile-pic {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 4px solid white;
+        object-fit: cover;
+    }
+
+    .header-text h1 {
+        margin: 0;
+        font-size: 32px;
+    }
+
+    .header-text p {
+        margin-top: 8px;
+        font-size: 16px;
+        opacity: 0.9;
+    }
+
+    /* NAV */
+    nav {
+        background-color: #162447;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 12px 18px;
+    }
+
+    nav a:hover {
+        background-color: #1f4068;
+    }
+
+    /* SECTIONS */
+    section {
+        max-width: 900px;
+        margin: 30px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        color: #1e3c72;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    /* FORM */
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    form button {
+        background-color: #1e3c72;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    form button:hover {
+        background-color: #2a5298;
+    }
+
+    .status {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #162447;
+        color: white;
+        margin-top: 30px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+        .header-container {
+            flex-direction: column;
             text-align: center;
-            padding: 40px 20px;
         }
-
-        header img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-bottom: 15px;
-        }
-
-        nav {
-            background-color: #162447;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 18px;
-        }
-
-        nav a:hover {
-            background-color: #1f4068;
-        }
-
-        section {
-            max-width: 900px;
-            margin: 30px auto;
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            color: #1e3c72;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        .project {
-            margin-bottom: 15px;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 8px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
-
-        form button {
-            background-color: #1e3c72;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        form button:hover {
-            background-color: #2a5298;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #162447;
-            color: white;
-            margin-top: 30px;
-        }
-
-        /* Mobile friendly */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 24px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
 
 <header>
-    <!-- Replace profile.jpg with your image name -->
-    <img src="profile.jpg" alt="Profile Photo">
-    <h1>My Portfolio</h1>
-    <p>Engineering Student | Beginner Web Developer</p>
+    <div class="header-container">
+        <!-- Profile Photo -->
+        <img src="profile.jpg" class="profile-pic" alt="Profile Photo">
+
+        <!-- Name & Title -->
+        <div class="header-text">
+            <h1>Muttaqui Poonawala</h1>
+            <p>Computer Engineering Student @ FrCRCE</p>
+            <p>Nature Photographer</p>
+        </div>
+    </div>
 </header>
 
 <nav>
@@ -128,42 +164,73 @@
 <section id="about">
     <h2>About Me</h2>
     <p>
-        Hello! I’m an engineering student who has recently started learning
-        web development. This is my first portfolio website created using
-        basic HTML and CSS. I’m excited to learn more and improve my skills.
+        I am a Computer Engineering student at Fr. Agnel Conceicao Rodrigues College of Engineering, Bandra, Mumbai
+        currently in my First Year.
+        
+        This portfolio is created using HTML, CSS, and EmailJS as part of
+        my academic work.
     </p>
 </section>
 
 <section id="skills">
     <h2>Skills</h2>
     <ul>
-        <li>HTML (Basics)</li>
-        <li>CSS (Basics)</li>
-        <li>C / C++ (Academic Level)</li>
+        <li>HTML & CSS (Basics)</li>
+        <li>C / C++ Programming</li>
         <li>Problem Solving</li>
     </ul>
 </section>
 
 <section id="projects">
     <h2>Projects</h2>
-    <div class="project">📌 Student Portfolio Website</div>
-    <div class="project">📌 Basic Calculator (HTML & CSS)</div>
-    <div class="project">📌 C Programming Lab Programs</div>
+    <ul>
+        <li>Student Portfolio Website</li>
+        <li>Basic Calculator (HTML & CSS)</li>
+    </ul>
 </section>
 
 <section id="contact">
     <h2>Contact Me</h2>
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message"></textarea>
+
+    <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
+        <div class="status" id="status"></div>
     </form>
 </section>
 
 <footer>
-    © 2025 Muttaqui | First Portfolio Website
+    © 2025 Muttaqui | Portfolio Website
 </footer>
+
+<!-- EMAILJS SCRIPT -->
+<script>
+    (function(){
+        emailjs.init("YOUR_PUBLIC_KEY"); // 🔴 Replace with your PUBLIC KEY
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        emailjs.sendForm(
+            "YOUR_SERVICE_ID",   // 🔴 Replace with SERVICE ID
+            "YOUR_TEMPLATE_ID",  // 🔴 Replace with TEMPLATE ID
+            this
+        ).then(
+            function() {
+                document.getElementById("status").innerHTML = "✅ Message sent successfully!";
+            },
+            function(error) {
+                document.getElementById("status").innerHTML = "❌ Failed to send message.";
+                console.error(error);
+            }
+        );
+
+        this.reset();
+    });
+</script>
 
 </body>
 </html>
