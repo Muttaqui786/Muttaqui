@@ -128,6 +128,25 @@
         margin-top: 30px;
     }
 
+    /* PHOTO GRID */
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+    }
+
+    .photo-grid img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.3s;
+    }
+
+    .photo-grid img:hover {
+        transform: scale(1.05);
+    }
+
     /* MOBILE */
     @media (max-width: 700px) {
         .header-container {
@@ -142,10 +161,7 @@
 
 <header>
     <div class="header-container">
-        <!-- Profile Photo -->
         <img src="profile.jpg" class="profile-pic" alt="Profile Photo">
-
-        <!-- Name & Title -->
         <div class="header-text">
             <h1>Muttaqui Poonawala</h1>
             <p>Computer Engineering Student @ FrCRCE</p>
@@ -158,6 +174,8 @@
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -166,9 +184,7 @@
     <p>
         I am a Computer Engineering student at Fr. Agnel Conceicao Rodrigues College of Engineering, Bandra, Mumbai
         currently in my First Year.
-        
-        This portfolio is created using HTML, CSS, and EmailJS as part of
-        my academic work.
+        This portfolio is created using HTML, CSS, and EmailJS as part of my academic work.
     </p>
 </section>
 
@@ -189,9 +205,27 @@
     </ul>
 </section>
 
+<section id="certificates">
+    <h2>Certificates</h2>
+    <ul>
+        <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:cba81f5c-e3f2-44dc-828e-65f9093628d2" target="_blank">MATLAB Onramp Certificate</a></li>
+        <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:7c631e31-7e25-4d93-8d81-e4fc220c7d67" target="_blank">MATLAB Machine Learning Certificate 2</a></li>
+        <li><a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:efd12062-6e7e-4d5b-8cd1-c5c6224304e7" target="_blank">MATLAB Introduction to Linear Algebra Certificate</a></li>
+    </ul>
+</section>
+
+<section id="gallery">
+    <h2>Nature Photography</h2>
+    <div class="photo-grid">
+        <img src="nature1.jpg" alt="Nature 1">
+        <img src="nature2.jpg" alt="Nature 2">
+        <img src="nature3.jpg" alt="Nature 3">
+        <img src="nature4.jpg" alt="Nature 4">
+    </div>
+</section>
+
 <section id="contact">
     <h2>Contact Me</h2>
-
     <form id="contact-form">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
@@ -215,8 +249,8 @@
         e.preventDefault();
 
         emailjs.sendForm(
-            "YOUR_SERVICE_ID",   // 🔴 Replace with SERVICE ID
-            "YOUR_TEMPLATE_ID",  // 🔴 Replace with TEMPLATE ID
+            "YOUR_SERVICE_ID",   // 🔴 Replace with your SERVICE ID
+            "YOUR_TEMPLATE_ID",  // 🔴 Replace with your TEMPLATE ID
             this
         ).then(
             function() {
