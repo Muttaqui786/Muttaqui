@@ -35,4 +35,110 @@
     <a href="#contact">Contact</a>
 </nav>
 
-<section id
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        I am a Computer Engineering student at Fr. Agnel Conceicao Rodrigues College of Engineering,
+        Bandra, Mumbai currently in my First Year.
+        This portfolio is created using HTML, CSS, and EmailJS as part of my academic work.
+    </p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML & CSS (Basics)</li>
+        <li>C / C++ Programming</li>
+        <li>Problem Solving</li>
+    </ul>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <ul>
+        <li>Student Portfolio Website</li>
+        <li>Basic Calculator (HTML & CSS)</li>
+    </ul>
+</section>
+
+<section id="certificates">
+    <h2>MATLAB Certificates</h2>
+    <ul>
+        <li>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:cba81f5c-e3f2-44dc-828e-65f9093628d2" target="_blank">
+                MATLAB Onramp Certificate
+            </a>
+        </li>
+        <li>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:7c631e31-7e25-4d93-8d81-e4fc220c7d67" target="_blank">
+                MATLAB Machine Learning Certificate 2
+            </a>
+        </li>
+        <li>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:AP:375f253d-bd37-46c3-b9af-7e719915109c" target="_blank">
+                MATLAB Introduction to Linear Algebra Certificate
+            </a>
+        </li>
+        <li>
+            <a href="https://acrobat.adobe.com/id/urn:aaid:sc:ap:c339fe6f-c8a0-4854-8364-e27d581e099e" target="_blank">
+                MATLAB Deep Learning Onramp Certificate
+            </a>
+        </li>
+    </ul>
+</section>
+
+<section id="gallery">
+    <h2>Nature Photography</h2>
+    <div class="photo-grid">
+        <img src="nariman-point.jpeg" alt="Nariman Point">
+        <img src="sky1.jpeg" alt="Sky">
+        <img src="sky2.jpeg" alt="Sky">
+        <img src="sunset.jpeg" alt="Sunset">
+        <img src="trees.jpeg" alt="Trees">
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+        <div class="status" id="status"></div>
+    </form>
+</section>
+
+<footer>
+    © 2025 Muttaqui | Portfolio Website
+</footer>
+
+<!-- EMAILJS SCRIPT -->
+<script>
+    (function () {
+        emailjs.init("3dbee53fA9gBFmq15"); // your PUBLIC KEY
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        emailjs.sendForm(
+            "service_muttaqui",   // SERVICE ID
+            "template_db9fvar",   // TEMPLATE ID
+            this
+        ).then(
+            function () {
+                document.getElementById("status").innerHTML = "✅ Message sent successfully!";
+            },
+            function (error) {
+                document.getElementById("status").innerHTML = "❌ Failed to send message.";
+                console.error(error);
+            }
+        );
+
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
